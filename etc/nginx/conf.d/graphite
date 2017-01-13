@@ -8,8 +8,8 @@ server {
   }
 
   # Your project's static media.
-  location /content {
-    alias /opt/graphite/webapp/content;
+  location /static/ {
+    alias /opt/graphite/webapp/content/;
   }
 
   # Finally, send all non-media requests to the Django server.

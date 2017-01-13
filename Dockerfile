@@ -34,11 +34,11 @@ RUN apk add --no-cache \
 
 EXPOSE 8080
 
-VOLUME ["/opt/graphite/storage"]
-#VOLUME ["/opt/graphite/conf", "/opt/graphite/storage/whisper"]
+VOLUME ["/opt/graphite/conf", "/opt/graphite/storage"]
 
 COPY run.sh /run.sh
 COPY etc/ /etc/
+COPY conf/ /opt/graphite/conf.example/
 
 # Enable tiny init
 ENTRYPOINT ["/sbin/tini", "--"]
