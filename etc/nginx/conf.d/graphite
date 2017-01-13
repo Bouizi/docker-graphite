@@ -1,0 +1,23 @@
+upstream django {
+  server unix:/tmp/uwsgi.sock;
+}
+server {
+  listen      8080;
+  server_name localhost;
+  charset     utf-8;
+  # Django admin media.
+  location /media/admin/ {
+    alias /usr/lib/python2.7/site-packages/django/contrib/admin/media/;
+  }
+
+  # Your project's static media.
+  location /content/ {
+    alias /opt/graphite/webapp/content/;
+  }
+
+  # Finally, send all non-media requests to the Django server.
+  location / {
+    uwsgi_pass  django;
+    include     uwsgi_params;
+  }
+}
