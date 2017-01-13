@@ -4,17 +4,14 @@ FROM alpine:3.5
 RUN apk add --no-cache \
   bash \
   ca-certificates \
-  git \
   nginx \
-  nodejs-lts \
   openssl \
   py2-pip \
   supervisor \
-  tar \
   tini \
-  uwsgi \
-  uwsgi-python \
-  && pip install supervisor-stdout
+  && pip install \
+  supervisor-stdout \
+  gunicorn
 
 # Install graphite
 ENV GRAPHITE_ROOT /opt/graphite
