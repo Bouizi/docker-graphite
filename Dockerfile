@@ -33,6 +33,9 @@ RUN apk add --no-cache \
   libffi-dev
 
 EXPOSE 8080
+EXPOSE 2003
+EXPOSE 2004
+EXPOSE 7002
 
 VOLUME ["/opt/graphite/conf", "/opt/graphite/storage"]
 
